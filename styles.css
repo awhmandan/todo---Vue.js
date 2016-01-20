@@ -1,0 +1,41 @@
+* {
+  font-family: 'Lato', 'Helvetica', sans-serif;
+  margin:0 auto;
+  text-align: center;
+  vertical-align: middle;
+  /*
+  width: 100vw;
+  height: 100vh;
+  background-color: #D4D9D4;
+  */
+}
+
+html {
+  
+}
+
+#title {
+  font-weight: bold;
+}
+
+.center-block {
+  padding-top: 10%;
+}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+
+#tasks {
+  min-width: 100%;
+}
+
+li button {
+  font-weight: bold;
+  background: none;
+  border: 0;
+  padding: 0;
+  float: right;
+  margin-left: 10px;
+}
