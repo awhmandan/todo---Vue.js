@@ -12,10 +12,23 @@ new Vue({
         ]
     },
 
+    computed: {
+        completions: function() {
+            return this.todos.filter(function(todo) {
+                return todo.completed;
+            });
+        },
+        remaining: function() {
+            return this.todos.filter(function(todo) {
+                return ! todo.completed;
+            });
+        }
+    },
+
     filters: {
-        inProcess: function(todos) {
+        inProgress: function(todos) {
             return todos.filter(function(todo) {
-                return ! todo.complete;
+                return ! todo.completed;
             });
         }
     },
@@ -23,10 +36,12 @@ new Vue({
     methods: {
         addTodo: function(e) {
             e.preventDefault();
-            this.todos.push({
-                body: this.newTodo,
-                completed: false
-            });
+            if(this.newTodo != ''){
+                this.todos.push({
+                    body: this.newTodo,
+                    completed: false
+                });
+            }
             this.newTodo = '';
         },
         editTodo: function(todo) {
@@ -37,8 +52,18 @@ new Vue({
         deleteTodo: function(todo) {
             this.todos.$remove(todo);
         },
-        completeTodo: function(todo) {
-            todo.completed = true;
+        toggleTodoCompletion: function(todo) {
+            todo.completed = ! todo.completed;
+        },
+        completeAll: function() {
+            this.todos.forEach(function(todo) {
+                todo.completed = true;
+            });
+        },
+        clearCompleted: function() {
+            this.todos = this.todos.filter(function(todo) {
+                return ! todo.completed;
+            });
         }
     }
 });
