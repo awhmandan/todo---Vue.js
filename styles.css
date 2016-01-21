@@ -3,15 +3,11 @@
   margin:0 auto;
   text-align: center;
   vertical-align: middle;
-  /*
-  width: 100vw;
-  height: 100vh;
-  background-color: #D4D9D4;
-  */
 }
 
-html {
-  
+body {
+  background: url("http://i.imgur.com/aZD17g0.jpg") no-repeat;
+  background-size: cover;
 }
 
 #title {
